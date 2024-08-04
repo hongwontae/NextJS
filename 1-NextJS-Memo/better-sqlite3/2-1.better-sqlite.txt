@@ -1,0 +1,44 @@
+1. better-sqlite
+=> SQLite을 더욱 쉽게 다룰 수 있는 라이브러리이다.
+
+
+2. 특징
+2-1. 동기식 인터페이스 : 동기적으로 작동한다.
+2-2. 높은 성능
+2-3. 자동 지원 관리 : DB를 사용하기 위해 열면 작업이 끝났을 떄 자동으로 닫아준다.
+
+
+3. DB 생성
+3-1. const Database = require('better-sqlite3');
+3-2. const DB = new(있어도되고 없어도 된다.) Database('data.db');
+=> data.db라는 DB 전용 파일이 생성된다.
+
+3-3. 생성되는 파일은 인자의 문자열에 따라 상대경로 OR 절대경로에 저장된다.
+
+
+4. db.prepare();
+=> db 명령문을 준비하는 메서드
+(db.prepare(select, insert, create table...));
+(create table를 사용하여 필드를 정의할 떄 primarykey를 정의하면 알아서 autoIncrement로 규정된다.)
+
+
+5. db.run()
+=> db 명령문을 실행하는 메서드
+
+
+6. create table IF NOT EXISTS tableName
+=> 해당 테이블이름이 존재하면 생성하지 않고 존재하지 않는다면 테이블을 생성하라
+
+
+7. db.get()/all()
+=> get : 단일 행을 반환한다.
+=> all : 모든 행을 배열로 반환한다.
+
+
+8. sqlite's ?
+8-1. 자리 표시자라고 하며, 실행 시 실제 값으로 대체된다.
+8-2. SQL Injection을 방어하기 위해 사용된다.
+
+8-3. 명령문에서 사용할 변수명을 ?로 대체한다.
+
+8-4. run이나 get, all의 인자에 ?에 해당하는 변수를 넣어주면 된다.

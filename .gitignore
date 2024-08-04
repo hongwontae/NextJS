@@ -3,13 +3,11 @@
 
 ### NextJS ###
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.js
-
-*.png
 *.jpg
-*.svg
+*.png
 
 # testing
 /coverage

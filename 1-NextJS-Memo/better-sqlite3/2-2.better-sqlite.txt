@@ -1,0 +1,16 @@
+9. @
+9-1. 명명된 자리 표시자라고 한다.
+9-2. 객체를 통한 접근이 가능해진다.
+
+9-3. ex) const insertStmt = db.prepare(`
+    INSERT INTO meals (slug, title, image, summary, instructions, creator, creator_email) VALUES (
+       @slug,
+       @title,
+       @image,
+       @summary,
+       @instructions,
+       @creator,
+       @creator_email
+    )
+`);
+=> slug 필드는 run{slug : 'slug-data', title : 'Super Title'}처럼 객체화하여 사용할 수 있다.
