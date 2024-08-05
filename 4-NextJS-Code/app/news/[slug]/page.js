@@ -1,4 +1,5 @@
 import { DUMMY_NEWS } from "@/DUMMY-DATA";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 function DynamicNewsPage({ params }) {
@@ -14,10 +15,13 @@ function DynamicNewsPage({ params }) {
     <>
       <article className="news-article">
         <header>
-          <img
-            src={`/images/news/${correctData.image}`}
-            alt={correctData.title}
-          ></img>
+          <Link href={`/news/${correctData.slug}/image`}>
+            <img
+              src={`/images/news/${correctData.image}`}
+              alt={correctData.title}
+            ></img>
+          </Link>
+
           <h1>{correctData.title}</h1>
           <time dateTime={correctData.date}>{correctData.date}</time>
         </header>
