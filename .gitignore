@@ -4,7 +4,7 @@
 ### NextJS ###
 # dependencies
 node_modules/
-/.pnp
+pnp/
 .pnp.js
 *.jpg
 *.png

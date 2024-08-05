@@ -1,3 +1,41 @@
 1. news page 추가, news/slug 페이지 추가, 이를 Navigation
+(/news 경로의 페이지를 위해 news 폴더와 폴더 내부에 page.js를 생성하고 JSX를 return 한다.)
 2. slug url 추출하여 렌더링해보기
+([] 폴더의 page.js는 props를 통해 객체를 받는데 여기서 params.slug를 통해 동적 url에 접근할 수 있다.)
 3. mainHeader 컴포넌트 추가
+(전체적인 Navigation을 위해서 root layout의 <body> 태그 위에 <MainHeader>을 추가한다.)
+
+
+4. NextJS의 데이터 fetching의 기본
+4-1. 데이터를 가져와서 나열하듯이 http 통신이나 내부 DB, DUMMY-Data을 통해 데이터를 가져온다.
+4-2. React와 동일하게 map을 사용해서 전체적인 데이터를 나열한다.
+4-3. 세부 페이지는 slug를 통해 데이터를 가져온다.
+
+
+5. Not Found
+5-1. 올바르지 url이나 특정 자원에 접근할 수 없을 때 반환되는 page이다.
+5-2. 이름은 not-found로 지정해야 한다.
+5-3. not-found page는 각 폴더 내부에서 생성할 수 없고 내부 폴더에 not-found가 존재하지 않을 떄 상위 경로의 not-found를 찾는다.
+
+5-4. 동적 경로를 사용할 떄 not-found 페이지는 해당 경로가 실제로 존재하는지 판단하지 않는다.
+=> 그렇기에 not-found 대신 에러를 throw한다.
+=> 동적 경로에 접근하여 데이터를 가져올 떄 존재하지 않는다면 undefined이기 떄문에 if check을 통해 notFound 함수를 호출하면 
+not-found page를 렌더링할 수 있다.
+
+
+*** @기호 사용
+=> @은 경로 별칭이라고 부른다.
+=> {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+=> baseURL : "."은 루트 디렉토리를 기준
+=> paths : 별칭을 지정하는 부분이다. 
+
+*** image tag의 src의 요청은 next 애플리케이션을 향할 수 있고 이 떄 public를 생략한다.
+
+*** time tage (interview HTML)
