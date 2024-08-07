@@ -1,12 +1,12 @@
-import { DUMMY_NEWS } from "@/DUMMY-DATA";
+import { getNewsItem } from "@/lib/news";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-function DynamicNewsPage({ params }) {
+async function DynamicNewsPage({ params }) {
   const newsSlug = params.slug;
-  const correctData = DUMMY_NEWS.find((ele) => {
-    return ele.slug === newsSlug;
-  });
+
+  const correctData = await getNewsItem(newsSlug);
+
   if (!correctData) {
     notFound();
   }

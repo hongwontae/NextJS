@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { DUMMY_NEWS } from "@/DUMMY-DATA";
 import NewsList from "@/components/news-list";
+import { getAllNews } from "@/lib/news";
 
-function NewsPage() {
+async function NewsPage() {
+  const data = await getAllNews();
+
   return (
     <>
       <h1>News Page</h1>
-      <NewsList news={DUMMY_NEWS}></NewsList>
-     
+      <NewsList news={data}></NewsList>
     </>
   );
 }

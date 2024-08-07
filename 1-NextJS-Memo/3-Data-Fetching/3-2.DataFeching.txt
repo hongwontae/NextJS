@@ -1,0 +1,11 @@
+1. Loading Fallback
+1-1. 데이터를 Fetching하는 컴포넌트 피드백을 주고 싶다면 loading.js를 추가하면 된다.
+=> 데이터 패칭 컴포넌트와 같은 레벨에 존재해야 한다.
+=> 자식이 loading이 없다면 부모 loading 사용할 수 있다.
+
+
+2. Suspense
+2-1. 비동기 컴포넌트 로딩을 관리하는데 사용한다.
+2-2. suspense로 덮여진 컴포넌트가 완전히 렌더링되기 전까지 suspense의 props인 fallback의 값이 렌더링된다.
+2-3. Suspense 컴포넌트 하나당 하나의 비동기 컴포넌트를 덮는다.
+

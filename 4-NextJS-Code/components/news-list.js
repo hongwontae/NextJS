@@ -4,7 +4,7 @@ function NewsList({ news }) {
   return (
     <>
       <ul className="news-list">
-        {news.map((ele) => {
+        {news && news.map((ele) => {
           return (
             <>
               <li key={ele.id}>

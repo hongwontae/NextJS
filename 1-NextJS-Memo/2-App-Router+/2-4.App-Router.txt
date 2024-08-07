@@ -17,6 +17,7 @@
 3-5. 인자로 request를 받을 수 있고 응답은 Response 형태를 갖춰서 보내야 한다.
 3-6. 요청 URL은 페이지 요청 하듯이 폴더/폴더...로 하면 된다. (get, post 메서드 이름 생략해야 한다.)
 3-7. 해당 함수들은 export 키워드를 앞에 붙여야 한다.
+3-8. Client 요청 대리 처리
 
 
 4. 미들웨어
@@ -30,8 +31,6 @@
 => export const config = {
     matcher : ['/admin/:path*', '/profile/:path*'] => 배열 내부의 경로의 요청만 가로채겠다.
 }
-
-
 
 
 
