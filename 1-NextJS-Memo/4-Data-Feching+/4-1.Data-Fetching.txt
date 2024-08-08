@@ -1,1 +1,34 @@
-1. 
+1. Data Store
+1-1. Backend API를 별도로 사용하지 않고 NextJS 내에서 데이터를 받아들여서 저장한다.
+1-2. 이를 위해서 라우트 핸들러를 사용한다. (C => S 가는 요청을 받아들여서 처리한다./ FolderName에 의거하는 URL)
+
+
+2. Server Action (React 자체 기능)
+2-1. form action props에 function을 건네주면 Server Action이 된다.
+2-2. 2-1 작업 후에 함수는 비동기 함수여야돼서 async 키워드와 해당 함수가 서버에서만 실행된다는 키워드인 'use server'(상단)가 필요하다.
+2-3. 이는 React의 기능이고 React가 아니라면 form의 action은 단지 전송될 때의 url이다.
+2-4. form action이 되면 기본 동작을 막고 받은 함수를 실행하고 해당 함수는 formdata 객체 인자를 받는다.
+
+
+3. Server Action File
+3-1. 'use server'라는 키워드를 최상단에 부여하고 server action 함수을 생성하면 여러개의 서버 액션을 생성하여 export할 수 있다.
+3-2. 'use server' 키워드는 각 함수에서 빠져도 된다.
+
+
+4. 이미지 업로드 및 저장
+4-1. NextJS 프로젝트 내에서 image를 저장하면 배포 환경에서 접근할 수 없다.
+4-2. AWS, Cloudinay service를 이용해서 Image의 저장소를 만든다.
+
+
+5. revalidatePath
+
+
+6. NextJS 캐시
+6-1. 배포 환경 일 떄 NextJS는 빌드 프로세스에서 모든 페이지를 사전 렌더링하고 페이지를 캐시한다.
+그 이후로 페이지를 다시 렌더링하지 않는다. (동적 페이지(동적 세그먼트)가 있을 경우는 아니다.)
+6-2. 즉, 데이터에 따라 페이지가 변경될 떄 revalidatePath을 사용해서 NextJS에게 캐시된 페이지를 삭제하고 리렌더링을 요청해야 한다.
+
+
+
+* .env.local 파일
+
