@@ -1,0 +1,40 @@
+1. Full Route Cache
+1-1. NextJS가 배포로 빌드가 시작되면 모든 페이지를 미리 렌더링한다. (동적 페이지 제외)
+1-2. 이를 NextJS 캐싱한다. => Full Route Cache
+1-3. 이 떄 export const dynamic = 'force-dynamic'를 사용하면 빌드 프로세스에서 해당 키워드가 들어간 컴포넌트 + 하위 컴포넌트
+들은 사전 렌더링하여 캐시하여 저장하지 않고 요청을 지속적으로 받을 수 있다. => dynamic의 두 번쨰 효과
+
+*** 배포 환경 => Full Route Cache/ 개발 환경 => 풀 라우트 캐시를 하지 않는다.
+
+
+2. revalidatePath, revalidateTage
+2-1. revalidatePath는 인자로 받은 경로의 캐시된 데이터를 무효화하고, *다음 요청* 시 새로운 데이터를 가져오는 함수이다.
+(두 번쨰 인자로 page나 layout을 받을 수 있는데 page는 해당 경로의 page만 layout은 해당 경로의 layout 전체를 대상으로 함수가 작동한다.)
+
+2-2. revalidateTag는 캐시된 데이터의 meta data를 식별하여 해당 캐시 데이터를 삭제하고 다음 요청 시 새로운 데이터를 가져온다.
+2-3. fetch('...', {
+    next : {
+        tags : ['dnjsxoghd']
+    }
+})
+
+revalidateTag('dnjsxoghd') => 해당 캐시 응답 데이터를 무효화하고 다음 요청 시 새로운 데이터를 Fetching한다.
+
+
+3. Server Action or 서버 컴포넌트에서 동일한 Request 처리
+3-1. import {cache} from 'react';
+3-2. export const getMessages = cache(function getMessages(){
+    return data
+}) => 동일한 요청이 나간다면 캐시된 요청이 존재하기 떄문에 요청을 보내지 않고 캐시 응답을 사용한다.
+=> Server Data Fetching일 떄 Request Cache이다.
+
+
+4. 서버 Fetching Data Cache
+4-1. import {unstable_cache} from 'next/cache' => Server Fetching에서 데이터 캐시
+4-2. promise를 반환하고 react의 cache 함수와 같은 함수를 덮어야 한다. => 반환한 함수의 데이터를 캐시한다.
+4-3. 두 번쨰 인자로 데이터 캐시를 식별한 배열 String을 부여할 수 있다.
+
+
+5. 서버 Data Cache Refetching
+5-1. revalidatePath을 사용
+5-2. revalidateTage을 사용
