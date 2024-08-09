@@ -4,6 +4,7 @@ import { getMessages } from '@/lib/messages';
 export default async function MessagesPage() {
   
   const response = getMessages();
+  console.log('messagesPage')
 
 
   if (!response || response.length === 0) {
