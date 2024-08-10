@@ -1,14 +1,20 @@
-1. NextJS에서 최적화 이미지 관리를 위해 제공되는 컴포넌트이다.
+1. Image Component는 Next.js에서 Image 렌더링을 효율적으로 할 수 있게 도와주는 Props이다.
 
 
-2. 주요 기능
-1. 자동 최적화 : 해상도에 맞춰 이미지를 동적으로 리사이징, 캐싱, 이미지 크기 줄이기
-2. 사이즈 조정 
-3. 레이징 로딩 => default props, 이미지가 화면 상에 필요할 떄 로드되고 렌더링된다.
-4. 모든 이미지 포맷 지원
-5. Responsive 이미지
+2. Required Props : src, alt, width, height (width과 height 대신 fill로 대체할 수 있다.)
+=> src : 1. 정적으로 import된 파일 객체, 2. path String
+=> 이 떄 src의 주소가 local이 아니고 외부 hosting이라면 next.config.mjs를 통해 remotePatterns을 설정해야 한다.
 
 
-3. props
-3-1. priority : 이미지를 우선 로드한다. 이 뜻은 이미지 로드를 우선한다는 뜻이지 이미지를 가져오기전에 해당 파일 코드를 막는 건 아니다.
-3-2. fill : 이미지가 부모 요소의 크기에 맞춰 채워지도록 한다.
+3. fill props는 부모의 컨테이너 기준으로 크기가 확장된다. => 가져올 사진에 대한 width과 height을 모를 떄 사용
+=> 부모 컨테이너 CSS 지정을 해줘야 한다. relative 설정을 해줘야한다.
+=> 왜냐하면 fill props을 사용하면 자동으로 absolute가 적용되기 때문이다.
+=> 이 떄는 정확히 부모 컨테이너 크기를 Image 컴포넌트가 따라간다.
+=> fill과 width, height이 동시에 존재하면 fill을 우선한다.
+
+
+4. loader props
+4-1. loader가 존재하면 src 요청이 아닌 loader가 image 요청을 대신한다.
+4-2. 이 함수에서 Cloudinary 호스트 업체가 제공하는 url을 사용해서 이미지를 원하는대로 가져올 수 있다.
+
+
