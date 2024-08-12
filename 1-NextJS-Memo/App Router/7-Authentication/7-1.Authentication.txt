@@ -1,0 +1,69 @@
+1. Code Logic
+1-1. form을 통해서 회원 가입 절차를 만든다.
+1-2. useActionForm을 사용해서 action의 function 제출 떄 input 데이터 추출과 검사 기능을 구현할 수 있다.
+1-3. password는 node:js의 crypto를 통해 hash 처리하여 저장한다.
+1-4. SQLITE을 사용해서 DB에 저장한다. => 이 떄 DB 저장 에러(제약 조건 위반 등)이 발생하면 error를 던지기 떄문에 try-catch로 
+error를 처리한다. => 제약 조건 위반일 떄 error.code === 'SQLITE_CONSTRAINT_UNIQUE'이다.
+1-5. 서버 액션의 경우 코드가 전부 다 실행되면 자동으로 클라이언트에게 응답이 전송된다. => 쿠키를 설정했기 떄문에 쿠기가 전송된다.
+
+
+2. 인증 이론
+2-1. 로그인 : 들어온 email과 password와 DB eamil, password의 일치를 확인하고 인증세션을 생성한다. 인증세션의 정보는 DB에 저장된다.
+저장된 세션 정보는 쿠키 형식으로 클라이언트에게 전달된다. 쿠키가 저장되었으니 쿠키를 포함하는 요청을 통해 보호된 자원에 접근할 수 있다.
+(쿠키 정보는 자동으로 요청에 포함된다.)
+
+
+3. Lucia
+3-1. 세션-쿠키, S <= => C 절차를 도와주는 라이브러리이다.
+3-2. npm install lucia @lucia-auth/adapter-sqlite
+3-3. const lucia = new Lucia({
+    adpater => 세션 정보를 생성한 뒤 저장할 Database
+    expires : false
+    attribute : {
+        secure : boolean => true라면 HTTPS에서만, false라면 http, https 둘 다 가능
+    },
+    sessionCookie : {
+        name,
+        path,
+        httpOnly,
+        secure,
+        sameSite,
+        maxAge
+    }
+})
+=> attribute : 세션 설정/ sessionCookie : 쿠키 설정
+=> 즉, Lucia 라이브러리는 세션 + 쿠키 둘 다 생성한다.
+
+3-4. 인스턴스 메서드
+1. createSession : 세션을 생성하고 DB에 저장하는 메서드이다. 인자로 userId(대체로 primaryKey)를 받고 세션 ID를 반환한다.
+2. createSessionCookie :  세션 쿠키를 생성하는 메서드이다. 인자로 세션 ID를 받아서 쿠키를 생성한다.
+(2의 메서드를 함수를 호출하면 반환 값으로 name, value, attributes props를 포함한 객체를 얻을 수 있다.)
+
+
+4. BetterSqlite3Adapter
+4-1. Lucia와 SQLITE DB를 연결해주는 어댑터를 생성하는 라이브러리이다.
+4-3. BetterSqlite3Adapter(db, {
+    user, => user Table에 의거하여 세션 정보를 줘야하기 떄문에 설정해줘야 한다.
+    session => 세션 정보를 저장하는 곳
+})
+
+
+5. cookies()
+5-1. Next.js에서 HTTP 쿠키를 읽고 설정하기 위한 API이다.
+5-2. 서버 액션이나 서버 컴포넌트에서 사용할 수 있다.
+5-3. cookies().set() : 응답에 쿠키를 설정하는데 사용한다. 첫 번쨰 인자 cookieName, 두 번쨰 인자 value, 세 번쨰 인자 config
+5-4. cookies().get() : 클라이언트에서 전송된 요청에서 쿠키 값을 읽어온다. 인자에 cookieName을 통해 특정 쿠키 값을 가져온다.
+
+
+6. await lucia.validateSession()
+6-1. sessionId를 인자로 받아서 해당 세션이 존재하는지 session table과 비교하여 값을 반환한다.
+6-2. 값이 존재하면 해당되는 user와 session 값을 내려주고 없다면 user : null, session : null이다.
+
+
+7. 
+
+
+
+*** hash + Buffer?
+*** process.env.NODE_ENV === 'production(development, test)'
+=> 현재 환경이 개발, 배포, 테스트인지 확인한다.

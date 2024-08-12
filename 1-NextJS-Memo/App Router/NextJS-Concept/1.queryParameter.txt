@@ -1,0 +1,5 @@
+1. page.js에서 쿼리 파라미터 식별하기
+1-1. {searchParams}을 통해 쿼리 파라미터를 가져올 수 있다.
+('/?mode='first' => searchParams.mode : 'first')
+1-2. page.js에서 가져오는 것이지 page내에 컴포넌트에서 가져오는 것이 아니다.
+
