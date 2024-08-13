@@ -1,0 +1,20 @@
+1. NextJS의 public Folder
+1-1. 해당 폴더에 저장된 사진이나 글꼴들은 정적인 데이터로 작용하기 떄문에 CSS나 HTML 코드에서 참조할 수 있다.
+
+
+2. PageRouter에서 CSS Module을 사용할 수 있다.
+
+
+3. Layout
+3-1. _app.js는 루트 컴포넌트이고 여러 페이지 컴포넌트가 렌더링되는 곳이다.
+3-2. _app.js가 리턴하는 <component/>가 개발자가 생성한 page을 의미하는 것이다.
+3-3. Layout 파일에서 props.children과 naviHeader를 구현한다.
+3-4. _app.js에 Layout 파일을 import하고 렌더링할 <component/>를 덮으면 레이아웃이 구현된다.
+
+
+4. 
+
+
+
+
+*** pageRouter => 렌더링 두 번?
