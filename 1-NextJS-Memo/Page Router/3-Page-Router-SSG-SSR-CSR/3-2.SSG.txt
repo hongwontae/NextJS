@@ -1,0 +1,35 @@
+1. validate를 설정을 하면 npm run build 명령어 이후 ISR이라는 문구가 등장한다.
+2. validate 옵션은 getStaticProps, 해당 파일의 JSX 둘 다 재실행하여 새로운 컴포넌트를 반환하는 것이다.
+
+
+3. getStaticProps +
+3-1. context 매개변수 : 해당 페이지에 대한 metaInfo
+3-2. return 객체 : props, validate, notFound, redirect
+(notFound : bool을 받고 flase라면 404 page를 반환한다. 데이터 페칭 실패할 떄 주로 사용한다.)
+(redirect : {
+    destination : 'string' => redirect 키는 객체를 받고 destination은 경로를 의미한다, 문자열을 넣어서 라우트를 정의한다.
+})
+
+
+4. 동적 매개변수
+(useRouter를 사용해서 router를 통해 동적 매개변수를 가져오는 것은 브라우저에서, 컴포넌트 내부에서만 사용가능하다.)
+4-1. getStaticProps의 매개변수를 통해서 동적 매개변수를 가져올 수 있다. => const {params} = context/ const id = params.pid;
+4-2. getStaticProps의 context를 사용해서 동적 매개변수를 가져오면 사전 페칭에 유리하다.
+
+
+5. getStaticPaths
+5-1. SSG의 개념을 따르기 때문에 동적 페이지를 사전 렌더링하기 위해서 필요한 함수이다.
+5-2. export async function getStaticPaths(){}
+5-3. 동적인 경로를 반환해야 한다.
+return {
+    paths : [ => 해당 경로의 path을 getStaticProps에게 넘겨준다.
+        {params : {pid : 'p1'}}
+        {params : {pid : 'p2'}}
+        {params : {pid : 'p3'}}
+    ],
+    fallback : false => paths의 경로가 아니라면 404
+}
+
+
+6. SSG을 위해서 동적 경로의 페이지의 데이터를 미리 페칭하여 해당 HTML을 미리 갖고 있는다.
+7. getStaticPaths를 통해서 paths들을 전달하고 각각 함수 호출하여 미리 데이터를 페칭하고 페이지를 생성하고 클라이언트에게 전달한다.

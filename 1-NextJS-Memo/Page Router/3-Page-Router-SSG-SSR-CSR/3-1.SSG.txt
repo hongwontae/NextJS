@@ -1,0 +1,49 @@
+1. React 앱의 단점
+1-1. 초기 페이지 로딩 시간이 길다.
+=> HTML이 렌더링되기까지 JS를 브라우저에서 실행해야하기 떄문이다.
+
+1-2. 검색 엔진에 적합하지 않다.
+=> 렌더링해야 데이터를 알 수 있기 떄문에 검색엔진이 데이터를 식별하지 못한다.
+
+
+2. NextJS pre-rendering
+2-1. 서버에서 사전 렌더링을 통해 HTML을 만들고 클라이언트에게 전달한다. => SEO에 적합하다.
+2-2. HTML을 보내는 것 뿐만 아니라 포함된 JS 코드를 모두 재전송한다. 이를 hydrate라고 한다.
+2-3. 사전 렌더링 방식은 두 가지이다. (static generation, SSR)
+
+
+3. NextJS 특징-1
+3-1. Page-Router는 기본적으로 동적 데이터가 없다면 사전 렌더링을 한다.
+4-1. 빌드하는 동안(배포 전 애플리케이션 구축할 떄) 페이지를 사전 생성한다. (HTML, DATA prepare)
+4-2. 구축된 페이지는 CDN을 통해서 캐시로 저장된다.
+
+
+4. getStaticProps(정적 생성, recommended)
+4-1. export async function getStaticProps(context){}
+4-2. NextJS가 컴포넌트를 실행하고 JSX를 반환하기 전에 getStaticProps의 여부를 확인하고 먼저 호출하여 값을 가져온다.
+4-3. 항상 객체를 반환해야 한다. => 컴포넌트의 인자(props)의 값이 된다.
+4-4. 해당 작업은 서버에서 pre-fetchig하여 데이터를 가져오는 것이다. 
+
+
+
+5. ISR(증분 정적 생성)
+5-1. 사전 생성하지만 주어진 페이지를 Next.js가 일정 시간 마다 재생성하도록 할 수 있는 개념이다
+(일정 시간이 지나면 다시 사전 생성되고 클라이언트에게 전달된다.)
+5-2. getStaticProps 함수에서 객체를 return할 떄 key로 revalidate라는 key에 시간 value를 주면 활성화된다.
+
+
+6. Summary
+6-1. 개발 환경에서는 새로운 페이지 요청이 도달하면 페이지를 서버에서 재생성하여 전달한다.
+6-2. 배포 환경, default settings에서는 새로운 페이지 요청이와도 사전 페이지를 그대로 전달한다
+6-3. 배포 환경에서 getStaticProps의 function에서 revalidate key가 존재한다면 revalidate 시간이 지나서 새로운 페이지 요청이 오면
+재생성하여 전달한다.
+6-4. 배포 환경에서 사전 생성된 페이지는 .next 폴더에 server/pages에 존재한다. => revalidate가 없다면 여기 있는 페이지를 
+요청이 오면 전달하는 것이다.
+
+
+*** React Props 구조
+
+
+
+
+

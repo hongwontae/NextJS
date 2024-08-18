@@ -1,0 +1,13 @@
+1. getStaticPaths fallback key
+3-1. 사전에 생성되지 않은 동적 페이지 요청을 어떻게 처리할지 결정하는 key이다.
+
+3-2. fallback : false => paths에 정의되지 않은 경로는 404 페이지를 반환한다.
+3-3. fallback : true => paths에 정의되지 않은 경로에 대한 요청을 처리하며, 페이지를 생성하는 동안 로딩 상태를 표시한다.
+3-4. fallback : 'blocking' => paths에 정의되지 않은 경로를 서버에서 동적으로 생성하고 로딩 상태 표시 x, 페이지가 준비될 떄까지
+기다린다.
+=> paths에 정적 페이지로 생성하지 않은 HTML이나 데이터는 요청이 전달되면 그 떄 HTML이 생성되어서 전달된다.
+
+
+4. getStaticProps notFound key
+4-1. notFound : ture => 데이터의 존재 여부에 따라 true, false를 반환해 404 page로 대체한다.
+

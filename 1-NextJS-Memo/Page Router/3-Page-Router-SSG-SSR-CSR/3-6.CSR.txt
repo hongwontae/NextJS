@@ -1,0 +1,19 @@
+1. CSR
+1-1. 클라이언트 코드를 통해서 데이터를 가져와서 컴포넌트를 구축하여 렌더링하는 개념
+1-2. pageRouter에서 CSR를 사용할 떄도 처음 반환되는 컴포넌트가 사전 렌더링되어서 전달된다.
+(기본적으로 사전 페이지를 준비한다. => CSR를 통해서 생성되는 데이터 + 컴포넌트는 HTML이 전달된 뒤 실행된다.)
+
+
+2. useSWR
+2-1. Fetch 기능에 데이터 캐시, 리페칭, 데이터 유효성 검사가 추가된 Hooks
+2-2. useSWR은 데이터 페칭을 어떻게 할지 모르기 떄문에 데이터를 가져오는 방식을 함수로 정의해서 제공해야 한다.
+(fetcher 함수가 resolved되기까지 loading 상태를 유지한다./ 데이터 페칭을 정의할 떄 header에 Authorization 같은 것을 통해서
+인증을 정의할 수 있다.)
+
+2-3. 옵션 객체를 통해서 여러 기능을 사용할 수 있다.
+1. { refreshInterval: 5000 } : 특정 간격마다 데이터 갱신
+2. { revalidateOnFocus: true } : 페이지 포커스 시 데이터 갱신(default)
+
+
+3. getStaticProps나 getServerSideProps를 통해 사전 데이터를 통해 HTML을 구축하고 클라이언트에서 fetch, axios, useSWR를 
+통해서 데이터를 또 다시 제어할 수 있다.

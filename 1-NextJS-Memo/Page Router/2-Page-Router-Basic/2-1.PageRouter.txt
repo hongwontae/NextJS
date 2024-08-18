@@ -12,9 +12,4 @@
 3-4. _app.js에 Layout 파일을 import하고 렌더링할 <component/>를 덮으면 레이아웃이 구현된다.
 
 
-4. 
-
-
-
-
 *** pageRouter => 렌더링 두 번?
