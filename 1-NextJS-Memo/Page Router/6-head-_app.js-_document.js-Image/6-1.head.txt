@@ -1,0 +1,14 @@
+1. <head></head>
+1-1. next.js 애플리케이션 페이지의 추가 정보를 나타낸다.
+1-2. 검색 엔진 크롤러가 제목과 설명을 주로 식별한다.
+
+
+2. Head 컴포넌트
+2-1. import Head from 'next/head'
+2-2. 반환하는 JSX 어디에 사용해도 무관하다.
+2-3. Head 사이에 <title></title> : page 제목, <meta name='description' content='설명..' /> : page 설명
+=> 주로 메타 정보를 넣을 떄의 구조
+
+
+3. 동적 Head
+3-1. props로 받은 값을 Head 컴포넌트의 title, meta에서 사용하여 동적으로 추가 정보를 표현할 수 있다.

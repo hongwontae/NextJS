@@ -1,0 +1,7 @@
+1. import Image from 'next/image';
+1-1. img 태그를 사용한다면 용량이 크고 브라우저 친화적인 이미지 유형이 아닌 기존의 유형을 응답한다.
+1-2. Image 태그는 width, height, src, alt를 기본적으로 받고 WebP 이미지 유형, 이미지 최적화한 뒤 .next에 저장하고 응답한다.
+1-3. defalut로 Image 컴포넌트는 Lazy Loading이다. (보이지 않으면 요청하여 가져오지 않는다.)
+1-4. Image의 width과 height 설정은 가져올 떄 설정되는 것이고 CSS는 클라이언트에서 설정되기 떄문에 CSS의 width과 height이
+우선시 된다.
+
