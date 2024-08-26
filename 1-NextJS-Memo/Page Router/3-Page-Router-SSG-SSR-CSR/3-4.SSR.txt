@@ -18,4 +18,5 @@
 3-4. React 애플리케이션처럼 동작
 
 
-4. getServerSideProps는 요청 떄마다 새로운 HTML을 전달한다.
+4. getServerSideProps는 요청 떄마다 새로운 HTML을 전달한다. => 즉, 캐시하지 않는다.
+(개발이든, 배포이든 동일하게)

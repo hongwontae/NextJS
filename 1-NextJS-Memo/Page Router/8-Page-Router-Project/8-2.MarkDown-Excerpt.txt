@@ -1,0 +1,9 @@
+1. fs.readdirSync
+1-1. 특정 디렉토리의 파일이름과 directory 이름을 배열로 반환한다.
+1-2. 인자로 path을 받는다.
+
+
+2. fs.readFileSync()
+2-1. FilePath (필수 인자), 인코딩 방식(선택 인자)
+2-2. FilePath만 존재하면 Buffer 타입으로 반환, 인코딩 방식을 설정하면 String으로 반환
+2-3. 

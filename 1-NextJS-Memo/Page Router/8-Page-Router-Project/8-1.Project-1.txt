@@ -1,0 +1,7 @@
+1. max-width
+2. Next-Image의 기능 + AR, PR일 떄 차이점
+
+3. MainNavigation : 대부분의 컴포넌트에서 필요하기 떄문에 _app.js에 부모 컴포넌트 layout를 만들어서 활용한다.
+=> 내비게이션을 다른 pages에 설정하지 않아도 자동으로 표시된다.
+
+4. 

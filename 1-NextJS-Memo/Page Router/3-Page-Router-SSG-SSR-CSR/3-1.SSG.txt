@@ -30,18 +30,21 @@
 5-1. 사전 생성하지만 주어진 페이지를 Next.js가 일정 시간 마다 재생성하도록 할 수 있는 개념이다
 (일정 시간이 지나면 다시 사전 생성되고 클라이언트에게 전달된다.)
 5-2. getStaticProps 함수에서 객체를 return할 떄 key로 revalidate라는 key에 시간 value를 주면 활성화된다.
+5-3. ISR은 일정 간격마다 정적 페이지를 재생성하는 것이다. => SSR이 아니다. 
 
 
 6. Summary
-6-1. 개발 환경에서는 새로운 페이지 요청이 도달하면 페이지를 서버에서 재생성하여 전달한다.
-6-2. 배포 환경, default settings에서는 새로운 페이지 요청이와도 사전 페이지를 그대로 전달한다
+6-1. 개발 환경에서는 새로운 페이지 요청이 도달하면 페이지를 서버에서 재생성하여 전달한다. (SSR)
+6-2. 배포 환경, default settings에서는 새로운 페이지 요청이와도 사전 페이지를 그대로 전달한다. (SSG)
 6-3. 배포 환경에서 getStaticProps의 function에서 revalidate key가 존재한다면 revalidate 시간이 지나서 새로운 페이지 요청이 오면
-재생성하여 전달한다.
+재생성하여 전달한다. (SSG)
 6-4. 배포 환경에서 사전 생성된 페이지는 .next 폴더에 server/pages에 존재한다. => revalidate가 없다면 여기 있는 페이지를 
 요청이 오면 전달하는 것이다.
 
 
-*** React Props 구조
+props = {text : message;}
+
+
 
 
 

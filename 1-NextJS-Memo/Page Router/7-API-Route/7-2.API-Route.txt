@@ -1,0 +1,20 @@
+1. MongoDB Connect
+1-1. Mongo API Site에서 connect => drivers => 연결 URL copy
+1-2. database access에서 database user 생성 이후 user, password 생성하고 copy
+1-3. network access
+1-4. npm install mongodb => import {MongoClient} from 'mongodb'
+1-5. const client = await MongoClient.connect('url') => url 안에 user, password, dbName(이거는 선택)
+1-6. const db = cient.db();
+1-7. awaot db.collection().inser...
+1-8. client.close()
+
+=> NodeJS와 달리 서버리스이기 떄문에 인스턴스가 실행이 지속되지 않는다.
+=> Mongo를 연결한 뒤에 close를 해야 메모리를 아낄 수 있다.
+
+
+2. 에러 핸들링
+2-1. 
+
+
+
+*** 요청이 들어올 떄마다 MongoClient.connect()를 통해 연결하는게 성능상으로 크게 문제되는가?

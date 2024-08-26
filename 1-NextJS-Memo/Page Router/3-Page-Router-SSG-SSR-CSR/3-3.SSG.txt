@@ -7,6 +7,9 @@
 기다린다.
 => paths에 정적 페이지로 생성하지 않은 HTML이나 데이터는 요청이 전달되면 그 떄 HTML이 생성되어서 전달된다.
 
+=> fallback이 true거나 blocking이고 동적 경로가 정의되지 않은 페이지의 요청이라면 SSR이다.
+=> 이 후 같은 요청이 오면 캐시되어서 .next 폴더에 존재하고 정적 페이지로 전달된다.
+
 
 4. getStaticProps notFound key
 4-1. notFound : ture => 데이터의 존재 여부에 따라 true, false를 반환해 404 page로 대체한다.
