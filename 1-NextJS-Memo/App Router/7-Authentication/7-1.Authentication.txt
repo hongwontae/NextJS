@@ -60,10 +60,6 @@ error를 처리한다. => 제약 조건 위반일 떄 error.code === 'SQLITE_CON
 6-2. 값이 존재하면 해당되는 user와 session 값을 내려주고 없다면 user : null, session : null이다.
 
 
-7. 
-
-
-
 *** hash + Buffer?
 *** process.env.NODE_ENV === 'production(development, test)'
 => 현재 환경이 개발, 배포, 테스트인지 확인한다.

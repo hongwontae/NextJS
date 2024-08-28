@@ -1,0 +1,6 @@
+1. CS Route + Server Route Protection
+1-1 CS Route 보호 => 클라이언트 웹 페이지 보호
+1-2. Server Router 보호 => API 요청 보호
+
+
+2. 

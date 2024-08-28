@@ -1,0 +1,17 @@
+1. 프리페칭
+1-1. Link 컴포넌트 : 페이지 상에 Link 컴포넌트가 표시되면 해당 페이지의 데이터를 백그라운드에서 페칭한다.
+1-2. next/script의 Script의 strategy="preload" : 1-1과 같다.
+
+
+2. 프리페칭 데이터
+=> HTML과 JS 번들을 의미한다.
+
+
+3. APP Router일 떄
+3-1. 서버 컴포넌트 : HTML을 미리 가져온다.
+3-2. 클라이언트 컴포넌트 : HTML과 JS 번들을 미리 가져온다.
+
+
+4. PAGE Router일 떄
+4-1. getStaticProps : 빌드 시점에 저장된 HTML을 미리 가져온다.
+4-2. getServerSideProps : SSR HTML을 미리 가져온다.
