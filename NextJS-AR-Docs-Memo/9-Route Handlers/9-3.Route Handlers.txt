@@ -1,0 +1,28 @@
+1. 요청 본문을 가져오는 방법
+=> const ClientBody = await req.json();
+
+
+2. 요청 formdata 본문을 가져오는 방법
+=> const formData = await req.formData();
+=> const nickname = await formData.get('nickname') => input name
+
+
+3. Next Cors
+=> 나중에 확인
+
+
+4. Segment Config Options
+4-1. export const dynamic = 'auto';
+=> api 라우트가 동적인지 정적인지 설정
+=> force-dynamic : 동적, 캐시 x
+=> force-static : 정적, 캐시 o 
+export const dynamicParams = true;
+=> dynamic segment을 제어하는 명령어
+export const revalidate = false;
+=> 캐시된 요청 저장 시간 설정 (초 단위)
+export const fetchCache = 'auto';
+=> 캐싱 전략
+=> force-cache : 응답 항상 캐시
+=> no-store : 항상 최신 데이터 fetching
+export const runtime = 'nodejs';
+export const preferredRegion = 'auto';

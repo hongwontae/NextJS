@@ -1,0 +1,25 @@
+1. 에러는 크게 예상되는 에러와 예상치 못한 에러로 나눌 수 있다.
+
+2. 예상되는 에러
+2-1. 에러 발생 시점을 예상한 코드에서 redirect나 return을 통해 다시 시도하게 하거나 error message를 띄울 수 있다.
+
+
+3. 예상되지 않는 에러
+3-1. 페이지 내 코드에서 error가 발생하면 코드가 실행이 정지되고 error.js를 찾고 이를 렌더링한다.
+=> 기본 동작
+3-2. error.js vs global.js
+=> error.js는 해당 라우트와 자식 라우트만 담당한다.
+=> global.js는 전체 라우트에 대한 error을 담당한다. (다만 error.js보다 우선순위 낮음), 루트에 위치하고, html, body태그가
+존재해야 한다.
+
+
+4. error.js
+4-1. 런타임에 예상치 못한 에러가 throw 되었을 떄 fallback UI이다.
+4-2. 해당 파일은 클라이언트에서 발생하기 때문에 'use cleint' 키워드가 필요하다.
+
+4-3. error 객체
+=> error.js 컴포넌트의 props로 error 객체가 존재한다.
+=> error.message를 통해 기존 페이지의 에러가 던져진 이유에 대한 String
+=> error.digest : 에러 해시값
+
+=> reset : 이전 페이지 리렌더링, 오류 복귀 시도 함수이다.

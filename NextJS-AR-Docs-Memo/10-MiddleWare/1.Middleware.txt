@@ -1,0 +1,26 @@
+1. Middleware
+=> 클라이언트의 요청이 route.js에 도달하기 전에 가로채서 특정한 작업을 하고 route.js에게 넘겨주는 일련의 과정
+
+
+2. 특징
+2-1. app, pages 폴더와 동일한 레벨에 미들웨어 파일이 위치해야 한다.
+2-2. 파일이름은 middleware.js or middleware.ts여야만 한다.
+
+2-3. 기본적으로 모든 경로에 대해 실행이 된다.
+=> matcher를 사용해서 경로 필터링이 가능하다.
+
+2-4. 미들웨어에서 사용하는 NextRequest, NextResponse는 route.js에서 사용하는 것과는 다르다.
+=> 다만 미들웨어 NextReqest 조작 후 NextReponse.next()를 호출하면 조작된 정보를 route.js에서 사용할 수 있다.
+
+
+3. matcher
+3-1. 미들웨어에서 경로 필터링을 할 수 있는 기능이다.
+3-2. export const config = {
+    matcher : []
+} => 기본 골격
+3-3. matcher의 값은 문자열 or 문자열 배열이 될 수 있다.
+3-4. /:path* : 하위 경로 모두 가능하다는 와일드 카드
+=> /dashboard/:path* : dashboard로 시작하는 모든 url 요청에 대해 middlerware를 거쳐야 한다.
+
+
+

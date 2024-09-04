@@ -1,0 +1,27 @@
+1. import {cookies} from 'next/headers'
+=> 라우터 핸들러 내에서 쿠키 제어를 할 수 있다.
+
+
+2. NextRequest를 통해 cookie 값을 얻어 올 수 있다.
+const token = request.cookie.get('token');
+
+
+3. reidrect();
+=> import { redirect } from 'next/navigation'
+=> 이를 통해서 원하는 페이지에 리다이렉션할 수 있다.
+
+
+4. 동적 경로를 가져올 수 있다.
+=> api 폴더/ [slug] 폴더/ route.js 형태
+=> export async function get(req, {params}){
+    console.log(params);
+} => 이렇게 동적 경로(slug)를 얻을 수 있다.
+
+
+5. 쿼리 파라미터 가져오기
+5-1. req.nextUrl.searchParams => 쿼리 파라미터를 다룰 수 있는 객체
+
+
+6. 스트리밍
+6-1. 데이터를 클라이언트에게 점진적으로 전송하는 방법
+=> 나중에 제대로 파악하자

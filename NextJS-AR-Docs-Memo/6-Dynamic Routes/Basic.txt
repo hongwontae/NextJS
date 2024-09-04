@@ -1,0 +1,10 @@
+1. []를 사용해서 폴더를 생성하면 해당 라우트가 동적 라우트가 된다.
+
+
+2. [...routeName] : Catch-All 라우트 폴더가 된다.
+
+
+3. page.js의 props의 {params}를 통해 동적 경로를 얻을 수 있다.
+
+
+4. Catch-All이라면 배열 형태로 segment가 반환된다.

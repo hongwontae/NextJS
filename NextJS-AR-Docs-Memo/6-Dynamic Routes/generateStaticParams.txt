@@ -1,0 +1,14 @@
+1. generateStaticParams
+=> page router의 SSG와 유사하다.
+=> 해당 함수는 페이지가 빌드될 떄 동적 경로를 찾고 호출되어서 HTML를 미리 생성한다. 정적 페이지에 적합한 기능이다.
+
+
+2. generateStaticParams 모든 id를 가져와서 return한다.
+return [
+    {id : 'd1'},
+    {id : 'd2'},
+    {id : 'd3'}
+] => 빌드 시점에 3
+
+
+3. generateStaticParams의 리턴 값이 3개라면 빌드 시점에 3개의 page.js를 생성한다.

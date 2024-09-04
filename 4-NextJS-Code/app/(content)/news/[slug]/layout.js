@@ -1,10 +1,8 @@
-function LayoutPage({ children, modal }) {
-  return (
-    <>
-      {modal}
-      {children}
-    </>
-  );
-}
-
-export default LayoutPage;
+export default function NewsDetailLayout({ children, modal }) {
+    return (
+      <>
+        {modal}
+        {children}
+      </>
+    );
+  }

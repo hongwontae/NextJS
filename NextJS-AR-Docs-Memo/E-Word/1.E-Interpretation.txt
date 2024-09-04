@@ -1,0 +1,14 @@
+1. Under the hood : 내부적으로 살펴보면
+2. abstract : 추상적인/ 추출하다/ 추상화
+3. configures : 설정하다.
+4. vital : 필수적인
+5. keep track of : ..을 기록하다/ ...추적하다
+6. baseline : 기준점(치)
+7. brush up : 다시 공부하다
+8. fundamentals : 근본적인/ 핵심적인/ 기본 원칙
+9. prompts : 즉각적인/ 신속한/ 촉발하다/ 유도하다/ 정확히/ 정각에
+(프롬프트 => 어떤 알림창이나 경고창을 의미하기도 한다.)
+10. manual : 수동의/ 설명서
+11. manually : 수동으로
+12. overview : 개관, 개요
+13. convention : 관례, 전통/ 협의회/ 조약/ 

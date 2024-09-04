@@ -9,6 +9,8 @@ async function ImagePage({ params }) {
     notFound();
   }
 
+  console.log('Image Gerenral Page')
+
   return (
     <>
       <div className="fullscreen-iamge">

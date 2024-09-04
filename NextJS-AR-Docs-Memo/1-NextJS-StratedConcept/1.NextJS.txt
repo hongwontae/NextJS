@@ -1,0 +1,13 @@
+1. Next.js의 특징
+1-1. 파일 기반 라우팅
+1-2. server, client 컴포넌트 렌더링
+1-3. 서버 컴포넌트 data fetching
+1-4. Styling (CSS Module, Tailwind, CSS IN JS)
+1-5. 최적화 
+
+
+2. Next.js package.json
+"dev": "next dev", => 개발 모드
+"build": "next build", => 배포 모드 생성
+"start": "next start", => 생성된 배포 next 실행
+"lint": "next lint" => ES Lint에 관련된 것

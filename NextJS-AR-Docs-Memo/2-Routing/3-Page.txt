@@ -1,0 +1,9 @@
+1. folder 내부에 page.js/ page.jsx/ page.tsx가 존재하면 해당 경로로 접근했을 떄 응답되는 page를 의미한다.
+=> 여러 폴더를 생성해서 page.js를 생성하여 애플리케이션을 구축하는게 기본 원리이다.
+
+
+2. 구조
+function HompPage(){
+    return..
+}
+export default HomePage; => 이름은 page.js여야 한다.

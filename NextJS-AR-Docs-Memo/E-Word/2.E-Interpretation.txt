@@ -1,0 +1,21 @@
+1. terminology : 전문 용어
+2. hierarchical : 계층에 따른 
+3. visualize : 상상하다
+4. subtree : 전체 트리의 한 부분
+5. comes after : 추적하다/ ..의 뒤를 잇다
+6. delimit : 범위(한계)를 정하다.
+7. incremental : 증가하는, 증대하는
+8. adoption : 입양, 채택
+9. corresponding : (~에) 해당하는/ 상응하는
+10. each other : 서로 (대명사)
+11. further : 더 멀리에/ 더/ 게다가/ 추가의
+12. preserve : 보호하다/ 보존하다/ 저장하다/ 전유물
+13. populate : 거주하다/ 이주시키다(하다)
+14. persist : 집요하게 계속하다/ 지속되다
+15. extract : 발췌/ 추출물/ 추출하다/ 뜯어내다
+16. go through (something) : ~을 살펴보다/ ~ 검토하다
+17. dive : 뛰어들다/ 잠수하다/ 급락하다/ 다이빙/ 잠수/ 급강하
+18. backward(s) : 뒤로/ 거꾸로
+19. forward(s) : 앞으로/ 더 빨리/ 앞으로 가는/ 앞쪽에 위치한/ 전달하다/ 향상시키다
+20. append : 덧붙이다/ 첨부하다
+21. transfer : 이동하다/ 전염시키다/ 이양하다/ 환승하다,  이동/환승/이적

@@ -1,0 +1,33 @@
+1. Route Handler Basic
+=> route.js라는 파일이 존재해야 한다.
+=> 관례적으로 api라는 폴더 내부에 api 엔드 포인드를 설정해서 route.js로 로직을 구성한다.
+=> 이 떄 Route Handler를 사용할 수 있다.
+
+
+2. api/route.js는 api 엔드 포인트이다.
+
+
+3. route.js는 export async function HTTPmethod(request){} 형식을 갖춰야 제대로 기능한다.
+=> HTTP Methods를 사용해서 함수 이름을 지어야 한다.
+=> 그래야 클라이언트 요청을 제대로 받을 수 있다.
+=> 그리고 HTTP Methods이름은 항상 대문자로 적어야 한다.
+
+
+4. NextRequest, NextResponse
+4-1. NextRequest는 node.js의 request 같은 것이다. => 다만 NextJS 애플리케이션에 맞게 업그레이드 된 것이다./ 인자로 받는다.
+4-2. NextResponse는 node.js의 res이다. => 다만 업그레이드되었고 인자로 받지 않고 next/server에서 가져와야 한다.
+
+
+5. cache
+5-1. 일반적으로 라우터 핸들러는 캐시되지 않지만 get 요청에 한해 캐시될 수 있다.
+5-2. NextResponse.json(data, {headers : 'Cache-Control' : ''max-age=120, must-revalidate''})
+=> NextResponse 객체에서 get headers에서 Cache-Control을 통해 캐시를 제어할 수 있다.
+5-3. export const dynamic = 'force-static';
+=> 해당 설정이 파일 상단에 존재하면 get 요청은 한 번 응답하면 서버에서 다시 처리하지 않는다.
+=> Cache-Control에 비해 세밀한 설정이 아니다.
+
+
+6. conflict
+6-1. route.js와 page.js가 충돌하면 에러가 발생한다.
+6-2. app 폴더네 blog라는 폴더 page.js와 route.js가 함께 존재하면 해당 경로롤 진입시 에러가 발생한다.
+
