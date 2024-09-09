@@ -7,7 +7,6 @@ import Image from "next/image";
 function ImagePicker({ label, name }) {
 
     const [pickedImage, setPickedImage] = useState(null);
-    console.log(pickedImage)
 
     const imageInputRef = useRef(null);
 

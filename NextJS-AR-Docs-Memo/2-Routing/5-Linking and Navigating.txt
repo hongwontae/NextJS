@@ -40,6 +40,9 @@
 3. router.prefetch() 훅을 사용해서 프로그래밍적으로 프리페칭 진행 
 4. 프리페칭은 배포 모드에서만 적용된다.
 
+=> app router일 경우 JS 번들, image, css등이 프리페칭
+=> page router일 경우 js 번들, image, css, html 등이 프리페칭
+
 
 4-3. 캐싱
 1. Router Cache : 클라이언트에 페이지에 대한 정보들을 캐시하는 공간

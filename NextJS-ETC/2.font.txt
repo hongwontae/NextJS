@@ -1,3 +1,9 @@
-1. app.js, document.js에서 <Head> 태그를 추가하고 원하는 폰트 link href
-2. tailwind.config.js에서 font-family를 통해서 이를 추가한다.
-3. className에서 사용가능
+1. app router에서 layout.js에서 <head> 태그를 안에 font link를 사용한다.
+2. tailwind.config.js에서 fontFamily : {
+    tailwindName : ['가져온 폰트 이름', 'Sans-f..']
+}
+3. 가져온 폰트 이름은 link의 family에 존재한다.
+4. tailwind 자동완성에 2에 대한 tailwindName이 나온다.
+
+
+=> tailwind.config.js를 통해 세세하게 css 단위를 바꿀 수 있다.
