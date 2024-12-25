@@ -1,0 +1,9 @@
+1. 처음 요청
+=> 사용자가 브라우저에서 URL에 접속하면 Next.js는 서버에서 HTML을 생성하여 클라이언트로 전달합니다.
+=> SSR(Server-Side Rendering)이나 SSG(Static Site Generation) 방식으로 HTML이 제공됩니다.
+
+
+2. React 초기화
+=> 클라이언트가 HTML을 수신한 뒤, React는 이를 "하이드레이션(Hydration)"하여 React 컴포넌트로 연결합니다.
+=> 이후 애플리케이션은 React SPA처럼 동작합니다.
+

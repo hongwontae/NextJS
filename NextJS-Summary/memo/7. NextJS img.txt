@@ -1,0 +1,4 @@
+1. <img/>
+=> NextJS에서 img 태그를 정확히 사용하기 위해서는
+=> 1. import하여 image 객체를 불러와야 합니다.
+=> 2. <img src={imageObject.src} alt={'...'}>를 통해 구현해야 합니다. 즉, src property로 추가해야 합니다.

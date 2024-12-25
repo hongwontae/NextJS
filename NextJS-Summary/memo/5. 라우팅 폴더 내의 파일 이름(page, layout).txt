@@ -1,0 +1,21 @@
+1. page.js
+=> 해당 라우트에 해당하는 page입니다.
+=> 해당 page.js가 렌더링됩니다.
+
+
+2. layout.js
+=> 해당 page.js의 레이아웃입니다. 
+
+2-1. children props를 사용해서 page.js를 표현해야 합니다. => 필수적
+2-2. 부모 라우트에 layout.js는 하위 라우트까지 layout합니다.
+2-3. export const metadata = {title : '', description : ''...}를 통해 메타데이터를 추가할 수 있습니다.
+=> 이 떄 부모 라우트 layout를 포함하는 하위 라우트 page.js도 공유합니다. 다만 하위 layout에 metadata가 존재한다면
+그것을 우선시 합니다.
+=> page.js에서도 export const metadata={}를 통해 구현할 수 있습니다.
+2-4. <html>, <body> 태그가 없어도 되지만 안정적이고 큰 제어권을 가지기 위해서 명시합니다.
+=> next.js가 내부적으로 HTML 문서 구조를 자동으로 생성합니다.
+2-5. layout.js에서 css 파일을 import하면 해당 레이아웃이 적용되는 컴포넌트들이 적용됩니다.
+
+
+3. icon.png
+=> NextJS에서 favicon으로 사용되는 파일명입니다.
