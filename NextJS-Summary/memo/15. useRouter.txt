@@ -1,0 +1,29 @@
+1. useRouter
+=> import {useRouter} from 'next/navigation';
+=> const router = useRouter()
+=> router 객체는 다양한 방식으로 프로그래밍적으로 이동할 수 있습니다.
+
+
+2. router 객체
+2-1. router.push(url, as, options)
+=> 주어진 URL로 페이지를 이동시킵니다. url은 이동할 경로이고, as는 URL 표시 형식, options는 옵션입니다.
+
+2-2. router.replace(url, as, options)
+=> push와 비슷하지만, 이전 히스토리를 대체합니다. 즉, 뒤로 가기 버튼을 눌러도 이전 페이지로 돌아가지 않습니다.
+
+2-3. router.back()
+=> 이전 페이지로 돌아갑니다.
+
+2-4. router.pathname
+=> 현재 경로를 나타냅니다. 예를 들어 /about, /posts/[id]와 같은 형태로 사용됩니다.
+
+2-5. router.query
+=> 현재 URL의 쿼리 파라미터를 객체 형식으로 제공합니다. 동적 경로를 사용할 때 유용합니다. 
+예를 들어 /posts/[id] 경로에서 id 파라미터를 가져올 수 있습니다.
+
+2-6. router.asPath
+=> 브라우저에 표시된 전체 URL 경로를 반환합니다. 쿼리 문자열을 포함한 경로를 확인할 때 유용합니다.
+
+2-7. router.isReady
+=> Next.js가 라우터 정보를 준비할 때까지 기다려야 하는 경우 true 값을 반환합니다. 
+동적 페이지에서 URL 쿼리 등을 사용할 때 유용합니다.

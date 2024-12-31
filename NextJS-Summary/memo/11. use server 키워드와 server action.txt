@@ -1,0 +1,13 @@
+1. 'use server'
+1-1. 특정 함수나 코드를 서버에서만 실행되도록 명시적으로 선언하는 기능입니다.
+1-2. 특정 함수 내부에서 'use server' 키워드를 사용하거나 컴포넌트 전체적으로 설정할 수 도 있습니다.
+
+
+2. server action
+2-1.  React 서버 컴포넌트와 React의 Form Handling을 결합하여 서버에서 
+직접 작업(예: 데이터베이스 업데이트, API 호출)을 처리할 수 있도록 하는 기능입니다.
+2-2. action 속성에 server action이 연결되어야 합니다.
+2-3. server action은 'use server' 키워드가 필요합니다.
+2-4. server action은 async 키워드가 붙어야 합니다.
+=> 이 요건을 갖추면 서버에서 실행되고 인자로 formData를 받습니다.
+=> 또한 기본 동작을 막습니다. (새로고침)

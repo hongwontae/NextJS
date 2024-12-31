@@ -1,0 +1,7 @@
+1. useActionState()
+1-1. server action과 더 긴밀한 연결을 위해 사용되는 훅입니다.
+1-2. const [state, action] = useActionState(actionFunction, initialState)
+=> 인자로 액션 함수와 초기 상태 값(서버의 응답 값)
+
+2. useActionState에 actionFunction이 연결되면 actionFunction은 prevState(초기 상태값), formData를 받습니다.
+=> actionFunction에서 data를 return하면 응답 값이 됩니다.

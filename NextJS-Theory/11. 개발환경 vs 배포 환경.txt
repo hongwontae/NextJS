@@ -1,0 +1,16 @@
+2. 배포 환경
+2-1. npm run build 명령어를 통해 배포 환경에서 동작할 수 있게 해줍니다.
+2-2. npm run build가 마무리되면 npm start를 통해 배포 환경을 실행할 수 있습니다.
+
+2-3. 기본적으로 (getServerSideProps, getStaticProps을 사용하지 않는 경우) next.js의 배포 환경에서는 
+모든 페이지를 사전 렌더링하여 전달합니다.
+=> 이런 경우 빌드 타임 한 번만 렌더링되어 데이터 추가나 업데이트 효과가 반영되지 않습니다.
+=> 또한 데이터가 변동하더라도 클라이언트가 캐시된 HTML을 재사용합니다.
+2-4. revaildatePath()를 통해 유효성 재검사 함수를 호출하여 해결할 수 있습니다.
+=> 특정 경로에 속하는 캐시를 재평가합니다.
+=> revaildatePath('path', 'page or layout')
+=> page일 경우 해당 경로에 존재하는 page.js 하나만, layout는 중첩된 모든 page
+
+2-5. 배포 환경에서는 public 폴더에 관여하지 않습니다.
+=> AWS, Image 클라우드 서비스를 통해 파일을 저장하는 해야 동작합니다.
+
