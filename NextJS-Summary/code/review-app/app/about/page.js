@@ -1,6 +1,8 @@
 import Rocket from "@/image/rocket.png";
 import Image from "next/image";
 
+
+
 const DATA = [
   {
     id: 1,
@@ -16,7 +18,14 @@ const DATA = [
   },
 ];
 
-function About() {
+
+async function About() {
+
+
+  const data = await fetch('http://localhost:8080/ar');
+  console.log(await data.json());
+  console.log('about')
+
   return (
     <>
       <h1 className="text-center text-4xl mt-10 mb-5">About Page</h1>

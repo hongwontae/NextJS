@@ -1,0 +1,19 @@
+1. 정적 렌더링(사전 렌더링)
+1-1. export const revalidate = 0
+1-2. cache: 'force-cache'
+=> 빌드 타임에 데이터가 고정됩니다.
+
+
+2. 클라이언트 렌더링
+2-1. use client 지시어
+
+
+3. 서버 사이드 렌더링
+3-1. cache: 'no-store'
+3-2. dynamic: 'force-dynamic'
+=> 요청 시마다 새로운 데이터을 요청하여 HTML을 가지고 옵니다.
+
+
+4. ISR(Incremental Static Regeneration)
+=> ISR은 HTML을 정적으로 생성하고 일정 주기마다 재생성하는 기능입니다.
+=> export const revalidation = n;을 사용하여 HTML을 백그라운드에서 갱신합니다.
