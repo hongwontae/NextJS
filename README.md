@@ -64,4 +64,75 @@ export default About;
 
 
 ## Pages Router Main Concepts
-1. 
+1. **Page Router Concepts and Hing** : [Page Router Concept Info](https://github.com/hongwontae/NextJS/tree/main/NextJS-Memo/Page%20Router/1-Page-Router-Basic)
+2. **SSG, SSR, CSR** : [SSG, SSR, CSR Info](https://github.com/hongwontae/NextJS/tree/main/NextJS-Memo/Page%20Router/3-Page-Router-SSG-SSR-CSR)
+3. **Optimize** : [Optimize Info](https://github.com/hongwontae/NextJS/tree/main/NextJS-Memo/Page%20Router/6-head-_app.js-_document.js-Image)
+4. **API Route** : [API Route Info](https://github.com/hongwontae/NextJS/tree/main/NextJS-Memo/Page%20Router/7-API-Route)
+5. **Authentication** : [Authentication Info](https://github.com/hongwontae/NextJS/tree/main/NextJS-Memo/Page%20Router/10-Page-Router-Authentication)
+
+- **Preview(SSG)**
+```javascript
+import fs from "node:fs/promises";
+import path from "node:path";
+
+function ProductDetailPage({ loaderProduct }) {
+  if (!loaderProduct) {
+    return <p>Lodaing...</p>;
+  }
+
+  return (
+    <>
+      <h1>Hello World</h1>
+      <p>{loaderProduct.title}</p>
+    </>
+  );
+}
+
+async function getData() {
+  const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
+
+  return data;
+}
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  console.log(params)
+  const pid = params.pid;
+
+  const data = await getData();
+
+  const product = data.products.find((ele) => ele.id === pid);
+
+  return {
+    props: {
+      loaderProduct: product,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+
+  const data = await getData();
+
+  const ids = data.products.map((ele)=>{
+    return ele.id
+  });
+
+
+  const paramsWithArray = ids.map(ele => {
+    return {
+      params : {pid : ele}
+    }
+  })
+
+
+  return {
+    paths: paramsWithArray,
+    fallback: false,
+  };
+}
+
+export default ProductDetailPage;
+```
