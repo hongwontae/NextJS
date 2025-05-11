@@ -9,4 +9,4 @@
 
 
 3. 동적 라우트 안에 일반 라우트
-=> 동적 라우트의 page.js의 params의 값은 포함하는 하위 라우트 page.js의 params와 일치합니다.\
+=> 동적 라우트의 page.js의 params의 값은 포함하는 하위 라우트 page.js의 params와 일치합니다.
