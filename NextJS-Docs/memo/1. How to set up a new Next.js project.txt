@@ -1,0 +1,8 @@
+1. NextJS를 만들기 전에 구축해야 할 시스템
+=> Node.js, Window(macOS or Linux)
+
+2. NextJS 설치 명령어
+=> npx create-next-app@latest
+
+3. Path Alias
+=> 
