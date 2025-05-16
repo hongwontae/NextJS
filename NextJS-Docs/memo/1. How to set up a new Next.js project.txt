@@ -5,4 +5,11 @@
 => npx create-next-app@latest
 
 3. Path Alias
-=> 
+3-1. baseUrl : 상대 경로를 해석할 기준 디렉토리를 정해주는 옵션
+=> .이기에 현재 내 폴더를 가르킵니다. -> review-next-docs를 가르킵니다.
+=> 이것만 설정해도 review-next-docs에 component 폴더를 만들면 component/button.js처럼 접근할 수 있습니다.
+
+3-2. "paths" " {
+    "패턴(별칭)/*" : ["실제경로/*"]
+}
+=> "@/*" : ["./*"] -> 이렇게 설정하면 루트 주소를 @로 매핑해서 더 가시성이 좋아집니다.
