@@ -1,0 +1,18 @@
+1. 서버 컴포넌트 안에 클라이언트 컴포넌트가 있을 떄 렌더링 작동원리
+=> HomePage라는 서버 컴포넌트 안에 Counter 라는 클라이언트 컴포넌트가 있다고 가정합시다.
+
+1-1. HomePage는 서버에서 실행되고 Counter는 서버에서 실행하지 않습니다.
+1-2. 대신 placeholder(명시적인 지시자)("이 자리에 Counter 컴포넌트를 Hydration할 것이다")를 넣습니다.
+=> 이를 하이드레이션 마커라고 합니다. <!--$-->, <!--/--> 이런 형태로 자리만 차지합니다.
+1-3. 서버가 만든 HTML과 클라이언트 번들이 묶여서 전송됩니다.
+=> 정확히 해석하자면 html 내부에 script 태그가 존재하고 이 주소를 통해서 비동기적으로 번들을 로드합니다.
+=> defer로 동작합니다.
+1-4. 이후 DOM이 만들어지면 script가 실행되면서 하이드레이션 마커에 클라이언트 컴포넌트가 렌더링됩니다.
+
+
+
+2. 초기 화면 렌더링
+=> 만약 서버 컴포넌트만 브라우저에게 보낸다고 가정합시다. (서+클 페이지 초기 화면이면 당연히 같이 전송됨)
+2-1. 이 떄도 React 관련 script, nextjs 관련 script는 html에 박혀서 전달됩니다.
+2-2. <script src="/_next/static/chunks/framework.js"></script> -> React 관련
+2-3. <script src="/_next/static/chunks/main.js"></script>  -> nextjs 관련

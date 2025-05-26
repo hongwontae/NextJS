@@ -1,0 +1,24 @@
+1. Dynamic Route
+1-1. []를 통해 동적 라우트 폴더를 설정할 수 있습니다.
+=> 일반적으로 일반 라우트를 만들고 하위에 동적 라우트를 만드는 방식입니다.
+
+1-2. [slug]처럼 생성하면 동적 라우트 page.js에서 동적 parameter를 받을 수 있습니다.
+=> function ... ({params}){ console.log(params.slug) }로 접근할 수 있습니다.
+1-3. 만약 일반 라우트 하위에 동적 라우트 + 일반 라우트가 존재할 떄 NextJS가 일반 라우트는
+ 동적 라우트 취급 하지 않습니다. 일반 라우트가 더 우위에 있습니다.
+
+
+2. NextJS-CSS
+2-1. 일반적으로 CSS 파일을 import하는 방식
+=> App Router을 사용할 떄는 app 폴더 내부에서 바로 생성한 layout.js나 page.js만 가능합니다.
+=> 충돌을 방지하기 위해서 제한을 걸어두었습니다.
+
+2-2. CSS Module
+=> React와 동일하게 파일이름을 layout.module.css로 만들고 import styles from '@/css-all/..';
+ 으로 가져와서 className={styles.color}로 적용하면 해당 file에 scope가 제한됩니다.
+
+2-3. tailwind
+
+
+3. image 최적화 (import Image from 'next/image')
+=> High-Concepts에 정리
